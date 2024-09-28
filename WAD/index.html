@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Diri</title>
+    <style>
+        body {
+            background-color: #f9dbfd; /* Warna background */
+        }
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            border: 5px solid #000000; /* Border kotak */
+            border-radius: 15px; /* Membuat sudut kotak melengkung */
+            padding: 20px; /* Jarak dalam kotak */
+            background-color: rgba(255, 255, 255, 0.9); /* Warna latar belakang kotak */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Memberikan efek bayangan */
+            text-align: center; /* Menyusun teks di tengah */
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #000000; /* Border gambar */
+        }
+        .nama {
+            margin-top: 20px;
+        }
+        .nama h1 {
+            font-size: 20px;
+            margin: 0;
+            background-color: rgb(145, 229, 255);
+            padding: 10px; /* Jarak dalam h1 */
+            border-radius: 10px; /* Sudut melengkung pada h1 */
+        }
+        .link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .link a img {
+            width: 50px;  /* Ukuran icon */
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;  /* Membuat gambar berbentuk lingkaran */
+            margin: 0 10px;  /* Jarak antar icon */
+        }
+        #dateTimeDisplay {
+            position: fixed;
+            bottom: 20px; /* Jarak dari bawah layar */
+            right: 20px; /* Jarak dari sisi kanan layar */
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.7); /* Warna latar belakang semi transparan */
+            color: white; /* Warna teks */
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container"> <!-- Kotak pengeliling -->
+        <div class="image-container">
+            <img src="C:\Users\khali\OneDrive - Telkom University\MATAKULIAH\SEM 5\WAD\foto profil.jpg" alt="Gambar Lingkaran" class="circle-image">
+            <div class="nama">
+                <h1>KHALISHA ATHAYA RABBANI <br> 1202220308</h1>
+            </div>
+            <div class="link">
+                <a href="https://www.instagram.com/75khalisha/" target="_blank">
+                    <img src="C:\Users\khali\OneDrive - Telkom University\MATAKULIAH\SEM 5\WAD\download (1).jpeg" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/feed/">
+                    <img src="C:\Users\khali\OneDrive - Telkom University\MATAKULIAH\SEM 5\WAD\download.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/Khalll75">
+                    <img src="C:\Users\khali\OneDrive - Telkom University\MATAKULIAH\SEM 5\WAD\download (1).png" alt="GitHub">
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="dateTimeDisplay"></div>
+
+    <script>
+        function updateDateTime() {
+            const dateTimeDisplay = document.getElementById('dateTimeDisplay');
+            const now = new Date();
+
+            // Opsi untuk menampilkan tanggal
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+            // Format tanggal
+            const date = now.toLocaleDateString('id-ID', options);
+
+            // Format waktu
+            const time = now.toLocaleTimeString('id-ID');
+
+            // Update konten elemen dengan tanggal dan waktu
+            dateTimeDisplay.innerHTML = date + ' | ' + time;
+        }
+
+        // Memperbarui setiap detik
+        setInterval(updateDateTime, 1000);
+
+        // Jalankan pertama kali saat halaman dimuat
+        updateDateTime();
+    </script>
+
+</body>
+</html>
